@@ -1,4 +1,4 @@
-var myApp = angular.module('tomsApp', ["ngRoute"])
+var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize"])
 
 .run(['$route', angular.noop])
 
@@ -54,11 +54,10 @@ var myApp = angular.module('tomsApp', ["ngRoute"])
 })
 
 .controller('mainController', function($scope, $http, WPAPI, $rootScope) {
-
 	$scope.options = {
 		query: {
 			site: "",
-			posts: "posts?filter[posts_per_page]=8&filter[order]=ASC"
+			posts: "posts?filter[posts_per_page]=8&filter[order]=DATE"
 		},
 		authorInfo: "Creator of <a target='_blank' href='http://ipsthemes.com'>IPS Themes</a> & <a target='_blank' href='http://xenthemes.com'>Xenthemes</a>.",
 	};
@@ -70,7 +69,7 @@ var myApp = angular.module('tomsApp', ["ngRoute"])
     $scope.hideCover = function(){
         this.coverActive = false;
     };
-    
+
 	WPAPI.fetch($scope.options.query.site).then(function(data){
 		$rootScope.siteInfo = data.data;
 		$rootScope.siteInfo.description = $rootScope.siteInfo.description + ' ' + $scope.options.authorInfo;
@@ -80,8 +79,6 @@ var myApp = angular.module('tomsApp', ["ngRoute"])
 		  	WPAPI.set(data);
 		});
 	});
-
-
 })
 
 .controller('projectController', function($scope, $routeParams) {
@@ -92,18 +89,10 @@ var myApp = angular.module('tomsApp', ["ngRoute"])
 	$rootScope.pageTitle = $scope.project.title;
 })
 
-.controller('portfolioController', function($scope) {
-
-})
-
 .controller('tagsController', function($scope, $rootScope, $routeParams) {
 	$scope.tag = {};
 	$scope.tag.name = $routeParams.tagId;
 	$rootScope.pageTitle = $scope.tag.name;
-})
-
-.controller('contactController', function() {
-
 })
 
 .directive('listAllTags', function() {
@@ -122,12 +111,6 @@ var myApp = angular.module('tomsApp', ["ngRoute"])
 	return {
 		templateUrl: 'pages/partials/layout.html'
 	};
-})
-
-.filter('raw', function($sce) {
-	return function(input) {
-		return $sce.trustAsHtml(input);
-	}
 })
 
 .filter('objByID', function($filter) {
