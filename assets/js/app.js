@@ -1,3 +1,7 @@
+// @codekit-prepend "angular.min.js"
+// @codekit-prepend "angular-route.js"
+// @codekit-prepend "angular-sanitize.js"
+
 var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize"])
 
 .config(function($routeProvider) {
