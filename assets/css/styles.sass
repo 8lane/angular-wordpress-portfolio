@@ -5,7 +5,11 @@ $brand-primary: #BA2A54
 $brand-primary-light: lighten($brand-primary,10%)
 $brand-primary-dark: darken($brand-primary,10%)
 $brand-secondary: #1F1F1F
-$brand-text: #474747
+$brand-text: #787C7E
+$brand-text-light: #787C7E
+
+$app-dotted-border-color: #D4D9DC
+$app-project-border-radius: 2px
 
 $app-photo-size: 115px
 $sidebar-width: 300px
@@ -19,6 +23,7 @@ $style6: #6b3aa7
 
 *
 	font-family: PT Serif
+	-webkit-font-smoothing: antialiased
 
 a
 	color: $brand-primary
@@ -31,11 +36,11 @@ a
 	h4
 		padding: 0 0 15px
 		margin: 0 0 20px
-		color: $brand-text
+		color: $brand-secondary
 		font-weight: normal
 		font-size: 11px
 		letter-spacing: 1px
-		border-bottom: 1px dotted #eee
+		border-bottom: 1px dotted $app-dotted-border-color
 
 	.sidebar
 		background: darken(white,2%)
@@ -52,6 +57,7 @@ a
 				li
 					> a
 						padding: 4px 0
+						color: $brand-text
 
 						&:hover, &:active, &:focus
 							color: $brand-secondary
@@ -82,7 +88,7 @@ a
 				border-radius: $app-photo-size
 	
 	.app-description
-		color: #444
+		color: $brand-text
 		font-size: 15px
 
 
@@ -91,10 +97,30 @@ a
 
 		.pure-menu-item
 			> a
+				position: relative
+
+				&:hover
+					background: initial
+
+				img
+					border-radius: $app-project-border-radius
+
+				.cover
+					+stretch(0,0,0,0)
+					margin: 10px
+					display: flex
+					justify-content: center
+					align-items: center
+					background: rgba(black,.7)
+					color: #fff
+					font-size: 15px
+					border-radius: $app-project-border-radius
+
+
 
 	.project
 		.post-header
-			border-bottom: 1px dotted #eee
+			border-bottom: 1px dotted $app-dotted-border-color
 
 			.post-title
 				margin: 0

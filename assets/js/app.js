@@ -60,9 +60,17 @@ var myApp = angular.module('tomsApp', ["ngRoute"])
 			site: "",
 			posts: "posts?filter[posts_per_page]=8&filter[order]=ASC"
 		},
-		authorInfo: "Creator of <a target='_blank' href='http://ipsthemes.com'>IPS Themes</a> & <a target='_blank' href='http://xenthemes.com'>Xenthemes</a>."
+		authorInfo: "Creator of <a target='_blank' href='http://ipsthemes.com'>IPS Themes</a> & <a target='_blank' href='http://xenthemes.com'>Xenthemes</a>.",
 	};
 
+    $scope.showCover = function(){
+        this.coverActive = true;
+    };
+
+    $scope.hideCover = function(){
+        this.coverActive = false;
+    };
+    
 	WPAPI.fetch($scope.options.query.site).then(function(data){
 		$rootScope.siteInfo = data.data;
 		$rootScope.siteInfo.description = $rootScope.siteInfo.description + ' ' + $scope.options.authorInfo;
