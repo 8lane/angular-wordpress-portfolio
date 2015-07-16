@@ -1,35 +1,32 @@
 var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize"])
 
-.run(['$route', angular.noop])
-
 .config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
 		templateUrl:'pages/home.html',
-		data : { pageTitle: 'Home' }
+		data : { pageTitle: 'Home | Tom Christian' }
 	})
 	.when('/portfolio/:projectId', {
 		controller:'projectController',
 		templateUrl:'pages/project.html',
-		data : { pageTitle: 'Project' }
+		data : { pageTitle: 'Project | Tom Christian' }
 	})
 	.when('/tags/:tagId', {
 		controller:'tagsController',
 		templateUrl:'pages/tags.html',
-		data : { pageTitle: 'Tags' }
+		data : { pageTitle: 'Tags | Tom Christian' }
 	})
 	.otherwise({
 		redirectTo:'/',
-		data : { pageTitle: 'Home' }
+		data : { pageTitle: 'Home | Tom Christian' }
 	});
 })
 
-.run(['$location', '$rootScope', function($location, $rootScope) {
+.run(['$location', '$rootScope', '$route', function($location, $rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-    	if(!$rootScope.siteInfo) {
-    		$rootScope.siteInfo = 'Tom Christian';
-    	}
-    	$rootScope.pageTitle = current.data.pageTitle;
+		if (current.hasOwnProperty('$$route')) {
+			$rootScope.pageTitle = current.data.pageTitle;
+		}
     });
 }])
 
@@ -44,16 +41,30 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize"])
                return data;
            });
 		},
-		get: function() {
-			return data;
-		},
 		set: function(data) {
 			data = data;
 		}
 	}
 })
 
-.controller('mainController', function($scope, $http, WPAPI, $rootScope) {
+.factory("appTitle", function($rootScope) {
+	return {
+		set: function(input) {
+			if($rootScope.pageTitle != input) {
+				$rootScope.pageTitle = input + ' | ' + 'Tom Christian';
+				return input;
+			}
+		}
+	}
+})
+
+.controller('mainController', function($scope, $http, WPAPI, appTitle) {
+
+	$scope.title = function(input) {
+		return appTitle.set(input);
+	};
+
+	$scope.siteInfo = {};
 	$scope.options = {
 		query: {
 			site: "",
@@ -62,17 +73,17 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize"])
 		authorInfo: "Creator of <a target='_blank' href='http://ipsthemes.com'>IPS Themes</a> & <a target='_blank' href='http://xenthemes.com'>Xenthemes</a>.",
 	};
 
-    $scope.showCover = function(){
+    $scope.showCover = function() {
         this.coverActive = true;
     };
 
-    $scope.hideCover = function(){
+    $scope.hideCover = function() {
         this.coverActive = false;
     };
 
 	WPAPI.fetch($scope.options.query.site).then(function(data){
-		$rootScope.siteInfo = data.data;
-		$rootScope.siteInfo.description = $rootScope.siteInfo.description + ' ' + $scope.options.authorInfo;
+		$scope.siteInfo = data.data;
+		$scope.siteInfo.description = $scope.siteInfo.description + ' ' + $scope.options.authorInfo;
 
 		WPAPI.fetch($scope.options.query.posts).then(function(data){
 		   $scope.portfolio = data.data;
@@ -81,18 +92,13 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize"])
 	});
 })
 
-.controller('projectController', function($scope, $routeParams) {
+.controller('projectController', function($scope, $routeParams, appTitle) {
 	$scope.projectId = $routeParams.projectId.split('-').pop().trim();
 })
 
-.controller('projectTitle', function($scope, $rootScope) {
-	$rootScope.pageTitle = $scope.project.title;
-})
-
-.controller('tagsController', function($scope, $rootScope, $routeParams) {
+.controller('tagsController', function($scope, $rootScope, $routeParams, appTitle) {
 	$scope.tag = {};
 	$scope.tag.name = $routeParams.tagId;
-	$rootScope.pageTitle = $scope.tag.name;
 })
 
 .directive('listAllTags', function() {

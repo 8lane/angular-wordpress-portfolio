@@ -1,7 +1,7 @@
 <div class="project">
-	<div ng-repeat="project in portfolio | objByID: {ID:projectId}" ng-controller="projectTitle"> 
+	<div ng-repeat="project in portfolio | objByID: {ID:projectId}"> 
 		<header class="post-header padding-md">
-	        <h1 ng-bind-html="project.title" class="post-title"></h2>
+	        <h1 ng-bind-html="title(project.title)" class="post-title"></h2>
 	        <div class="post-meta padding-sm padding-v">
 	            By <span class="post-author">{{project.author.name}}</span> on <span class="post-date">{{project.date | date:'d MMMM, yyyy'}}</span> <span ng-show="project.terms.post_tag">under</span> <ul list-tags class="pure-menu pure-menu-horizontal post-tags"></ul>
 	        </div>

@@ -1,4 +1,4 @@
-<li class="{{pageTitle == 'Home' && 'active' || null }} pure-menu-item"><a ng-href="#/" class="pure-menu-link">All</a></li>
-<li ng-repeat="tags in portfolio | getAllTags" class="{{pageTitle == tags && 'active' || null }} pure-menu-item">
+<li class="{{pageTitle == 'Home | Tom Christian' && 'active' || null }} pure-menu-item"><a ng-href="#/" class="pure-menu-link">All</a></li>
+<li ng-repeat="tags in portfolio | getAllTags" class="{{pageTitle == tags + ' | Tom Christian' && 'active' || null }} pure-menu-item">
 	<a ng-href="#/tags/{{tags | cleanUrl}}" class="pure-menu-link">{{tags}}</a>
 </li>
