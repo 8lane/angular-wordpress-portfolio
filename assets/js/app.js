@@ -33,7 +33,7 @@ var myApp = angular.module('tomsApp', ["ngRoute"])
     });
 }])
 
-.factory("WPAPI",function($http,$q){
+.factory("WPAPI",function($http, $q){
 	var data = {},
 		baseURL = 'http://dev/portfoliov4/wordpress/wp-json/';
 
@@ -53,58 +53,49 @@ var myApp = angular.module('tomsApp', ["ngRoute"])
 	}
 })
 
-.controller('mainController', function($scope,$http, WPAPI, $rootScope) {
+.controller('mainController', function($scope, $http, WPAPI, $rootScope) {
 
-	var siteQuery = "";
-		postQuery = 'posts?filter[posts_per_page]=8&filter[order]=ASC';
+	$scope.options = {
+		query: {
+			site: "",
+			posts: "posts?filter[posts_per_page]=8&filter[order]=ASC"
+		},
+		authorInfo: "Creator of <a target='_blank' href='http://ipsthemes.com'>IPS Themes</a> & <a target='_blank' href='http://xenthemes.com'>Xenthemes</a>."
+	};
 
-	WPAPI.fetch(siteQuery).then(function(data){
+	WPAPI.fetch($scope.options.query.site).then(function(data){
 		$rootScope.siteInfo = data.data;
+		$rootScope.siteInfo.description = $rootScope.siteInfo.description + ' ' + $scope.options.authorInfo;
 
-		WPAPI.fetch(postQuery).then(function(data){
+		WPAPI.fetch($scope.options.query.posts).then(function(data){
 		   $scope.portfolio = data.data;
 		  	WPAPI.set(data);
 		});
 	});
 
+
 })
 
-.controller('projectController', function($scope, $location, $rootScope, $routeParams, $http, $sce, $filter, WPAPI) {
-
+.controller('projectController', function($scope, $routeParams) {
 	$scope.projectId = $routeParams.projectId.split('-').pop().trim();
-
-	//$rootScope.title = $scope.myVar;
-	//console.log($scope.myVar);
-	//$routeParams.data.pageTitle = 'cool';
-
 })
 
-.controller('projectTitle', function($scope, $location, $rootScope, $routeParams, $http, $sce, $filter, WPAPI) {
-	
+.controller('projectTitle', function($scope, $rootScope) {
 	$rootScope.pageTitle = $scope.project.title;
+})
+
+.controller('portfolioController', function($scope) {
 
 })
 
-.controller('portfolioController', function($scope,WPAPI) {
-
-	//$scope.portfolio = [portfolio];
-	//console.log($scope.portfolio);
-
-})
-
-.controller('tagsController', function($scope, $rootScope, $routeParams, WPAPI) {
-
+.controller('tagsController', function($scope, $rootScope, $routeParams) {
 	$scope.tag = {};
 	$scope.tag.name = $routeParams.tagId;
 	$rootScope.pageTitle = $scope.tag.name;
-
-	//$scope.portfolio = [portfolio];
-	//console.log($scope.portfolio);
-
 })
 
 .controller('contactController', function() {
-	console.log('contact controller!');
+
 })
 
 .directive('listAllTags', function() {
