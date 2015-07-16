@@ -1,8 +1,14 @@
+@import "partials/mixins"
+@import "partials/helpers"
+
 $brand-primary: #BA2A54
 $brand-primary-light: lighten($brand-primary,10%)
 $brand-primary-dark: darken($brand-primary,10%)
 $brand-secondary: #1F1F1F
 $brand-text: #474747
+
+$app-photo-size: 115px
+$sidebar-width: 300px
 
 *
 	font-family: PT Serif
@@ -12,22 +18,6 @@ a
 	text-decoration: none
 	&:hover
 		color: $brand-primary-dark
-
-.text-center
-	text-align: center
-
-.padding-sm
-	padding: 10px
-
-.padding-md
-	padding: 20px
-
-.padding-lg
-	padding: 30px
-
-.padding-xlg
-	padding: 40px
-
 
 .wrapper
 
@@ -44,6 +34,7 @@ a
 		background: darken(white,2%)
 		position: fixed
 		height: 100%
+		width: $sidebar-width
 
 		.filter
 			> ul
@@ -64,17 +55,27 @@ a
 							color: $brand-primary
 
 	.content
-		margin-left: 25%
+		padding-left: $sidebar-width
+		width: 100%
 
 	.app-title
 		margin: 0
+
 		> a
+			padding: 15px 0
 			color: $brand-secondary
 			font-weight: 400
 			text-transform: initial
+
+			.app-photo
+				display: block
+				+square($app-photo-size)
+				margin: 0 auto 20px
+				border-radius: $app-photo-size
 	
 	.app-description
 		color: #444
+		font-size: 15px
 
 
 	.projects
@@ -82,3 +83,16 @@ a
 
 		.pure-menu-item
 			> a
+
+
++respond-to(both)
+	.wrapper
+		.sidebar
+			width: 100%
+			position: relative
+
+			.filter
+				display: none
+
+		.content
+			padding-left: 0

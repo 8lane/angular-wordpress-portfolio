@@ -1,10 +1,15 @@
 <div class="wrapper pure-g">
     <aside class="sidebar pure-u-1 pure-u-md-1-4">
 		<header class="padding-xlg text-center">
-			<h1 class="app-title"><a ng-href="#home" class="pure-menu-heading">{{siteInfo.name}}</a></h1>
+			<h1 class="app-title">
+				<a ng-href="#/" class="pure-menu-heading">
+					<img ng-src="assets/img/avatar.jpg" alt="{{siteInfo.name}}" class="app-photo" />
+					{{siteInfo.name}}
+				</a>
+			</h1>
 			<span class="app-description" ng-bind-html="siteInfo.description | raw"></span>
 		</header>
-		<nav class="filter pure-menu padding-xlg">
+		<nav class="filter pure-menu padding-xlg padding-half-v">
 			<h4 class="pure-menu-heading">Filter</h4>
 		    <ul list-all-tags></ul>
 		</nav>
