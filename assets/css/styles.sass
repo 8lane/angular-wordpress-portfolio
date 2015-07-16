@@ -1,0 +1,84 @@
+$brand-primary: #BA2A54
+$brand-primary-light: lighten($brand-primary,10%)
+$brand-primary-dark: darken($brand-primary,10%)
+$brand-secondary: #1F1F1F
+$brand-text: #474747
+
+*
+	font-family: PT Serif
+
+a
+	color: $brand-primary
+	text-decoration: none
+	&:hover
+		color: $brand-primary-dark
+
+.text-center
+	text-align: center
+
+.padding-sm
+	padding: 10px
+
+.padding-md
+	padding: 20px
+
+.padding-lg
+	padding: 30px
+
+.padding-xlg
+	padding: 40px
+
+
+.wrapper
+
+	h4
+		padding: 0 0 15px
+		margin: 0 0 20px
+		color: $brand-text
+		font-weight: normal
+		font-size: 11px
+		letter-spacing: 1px
+		border-bottom: 1px dotted #eee
+
+	.sidebar
+		background: darken(white,2%)
+		position: fixed
+		height: 100%
+
+		.filter
+			> ul
+				padding: 0
+				margin: 0
+				list-style-type: none
+
+				li
+					> a
+						padding: 4px 0
+
+						&:hover, &:active, &:focus
+							color: $brand-secondary
+							background: initial
+
+					&.active
+						> a
+							color: $brand-primary
+
+	.content
+		margin-left: 25%
+
+	.app-title
+		margin: 0
+		> a
+			color: $brand-secondary
+			font-weight: 400
+			text-transform: initial
+	
+	.app-description
+		color: #444
+
+
+	.projects
+		margin: 0
+
+		.pure-menu-item
+			> a

@@ -1,0 +1,17 @@
+<div class="wrapper pure-g">
+    <aside class="sidebar pure-u-1 pure-u-md-1-4">
+		<header class="padding-xlg text-center">
+			<h1 class="app-title"><a ng-href="#home" class="pure-menu-heading">{{siteInfo.name}}</a></h1>
+			<span class="app-description">
+				Designer &amp; developer from Camden Town, London. Creator of <a target="_blank" href="http://ipsthemes.com">IPS Themes</a> &amp; <a target="_blank" href="http://xenthemes.com">Xenthemes</a>.
+        	</span>
+		</header>
+		<nav class="filter pure-menu padding-xlg">
+			<h4 class="pure-menu-heading">Filter</h4>
+		    <ul list-all-tags></ul>
+		</nav>
+    </aside>
+    <main class="content pure-u-1 pure-u-md-3-4">
+    	<div ng-view class="padding-md"></div>
+    </main>
+</div>

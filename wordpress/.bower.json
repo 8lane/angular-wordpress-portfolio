@@ -1,0 +1,15 @@
+{
+  "name": "wordpress",
+  "homepage": "https://github.com/WordPress/WordPress",
+  "version": "4.2.2",
+  "_release": "4.2.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "4.2.2",
+    "commit": "0b63a9e4b66eff7826bd7319ef767d24d9b55775"
+  },
+  "_source": "git://github.com/WordPress/WordPress.git",
+  "_target": "~4.2.2",
+  "_originalSource": "wordpress",
+  "_direct": true
+}

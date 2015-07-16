@@ -1,0 +1,61 @@
+* {
+  font-family: PT Serif; }
+
+a {
+  color: #BA2A54;
+  text-decoration: none; }
+  a:hover {
+    color: #902141; }
+
+.text-center {
+  text-align: center; }
+
+.padding-sm {
+  padding: 10px; }
+
+.padding-md {
+  padding: 20px; }
+
+.padding-lg {
+  padding: 30px; }
+
+.padding-xlg {
+  padding: 40px; }
+
+.wrapper h4 {
+  padding: 0 0 15px;
+  margin: 0 0 20px;
+  color: #474747;
+  font-weight: normal;
+  font-size: 11px;
+  letter-spacing: 1px;
+  border-bottom: 1px dotted #eee; }
+.wrapper .sidebar {
+  background: #fafafa;
+  position: fixed;
+  height: 100%; }
+  .wrapper .sidebar .filter > ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none; }
+    .wrapper .sidebar .filter > ul li > a {
+      padding: 4px 0; }
+      .wrapper .sidebar .filter > ul li > a:hover, .wrapper .sidebar .filter > ul li > a:active, .wrapper .sidebar .filter > ul li > a:focus {
+        color: #1F1F1F;
+        background: initial; }
+    .wrapper .sidebar .filter > ul li.active > a {
+      color: #BA2A54; }
+.wrapper .content {
+  margin-left: 25%; }
+.wrapper .app-title {
+  margin: 0; }
+  .wrapper .app-title > a {
+    color: #1F1F1F;
+    font-weight: 400;
+    text-transform: initial; }
+.wrapper .app-description {
+  color: #444; }
+.wrapper .projects {
+  margin: 0; }
+
+/*# sourceMappingURL=styles.min.css.map */
