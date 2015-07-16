@@ -3,6 +3,10 @@
 
 .padding-sm {
   padding: 10px; }
+  .padding-sm.padding-v {
+    padding: 10px 0; }
+  .padding-sm.padding-h {
+    padding: 0 10px; }
   .padding-sm.padding-half-v {
     padding: 5px 10px; }
   .padding-sm.padding-half-h {
@@ -10,6 +14,10 @@
 
 .padding-md {
   padding: 20px; }
+  .padding-md.padding-v {
+    padding: 20px 0; }
+  .padding-md.padding-h {
+    padding: 0 20px; }
   .padding-md.padding-half-v {
     padding: 10px 20px; }
   .padding-md.padding-half-h {
@@ -17,6 +25,10 @@
 
 .padding-lg {
   padding: 30px; }
+  .padding-lg.padding-v {
+    padding: 30px 0; }
+  .padding-lg.padding-h {
+    padding: 0 30px; }
   .padding-lg.padding-half-v {
     padding: 15px 30px; }
   .padding-lg.padding-half-h {
@@ -24,6 +36,10 @@
 
 .padding-xlg {
   padding: 40px; }
+  .padding-xlg.padding-v {
+    padding: 40px 0; }
+  .padding-xlg.padding-h {
+    padding: 0 40px; }
   .padding-xlg.padding-half-v {
     padding: 20px 40px; }
   .padding-xlg.padding-half-h {
@@ -70,6 +86,7 @@ a {
   .wrapper .app-title > a {
     padding: 15px 0;
     color: #1F1F1F;
+    font-size: 30px;
     font-weight: 400;
     text-transform: initial; }
     .wrapper .app-title > a .app-photo {
@@ -83,6 +100,41 @@ a {
   font-size: 15px; }
 .wrapper .projects {
   margin: 0; }
+.wrapper .project .post-header {
+  border-bottom: 1px dotted #eee; }
+  .wrapper .project .post-header .post-title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: normal; }
+  .wrapper .project .post-header .post-meta {
+    color: #474747; }
+  .wrapper .project .post-header .post-tags {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    margin: 0; }
+    .wrapper .project .post-header .post-tags .tag {
+      padding: 5px 14px;
+      border: 0;
+      margin: 0 2px;
+      font-size: 12px;
+      text-transform: uppercase;
+      border-radius: 25px;
+      color: #fff; }
+      .wrapper .project .post-header .post-tags .tag:hover {
+        color: #fff; }
+      .wrapper .project .post-header .post-tags .tag.tag-php {
+        background-color: #de4d6c; }
+      .wrapper .project .post-header .post-tags .tag.tag-wordpress {
+        background-color: #0e8d71; }
+      .wrapper .project .post-header .post-tags .tag.tag-angular {
+        background-color: #3f4957; }
+      .wrapper .project .post-header .post-tags .tag.tag-cordova {
+        background-color: #3464ac; }
+      .wrapper .project .post-header .post-tags .tag.tag-photoshop {
+        background-color: #f4a038; }
+      .wrapper .project .post-header .post-tags .tag.tag-javascript {
+        background-color: #3464ac; }
 
 @media only screen and (max-width: 979px) {
   .wrapper .sidebar {

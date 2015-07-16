@@ -1,3 +1,3 @@
 <li ng-repeat="term in project.terms.post_tag" class="pure-menu-item">
-	<a ng-href="#/tags/{{term.name | cleanUrl}}" class="pure-button pure-button-primary">{{term.name}}</a>
+	<a ng-href="#/tags/{{term.name | cleanUrl}}" class="pure-button pure-button-primary tag tag-{{term.name}}">{{term.name}}</a>
 </li>

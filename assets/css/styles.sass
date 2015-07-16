@@ -10,6 +10,13 @@ $brand-text: #474747
 $app-photo-size: 115px
 $sidebar-width: 300px
 
+$style1: #de4d6c
+$style2: #0e8d71
+$style3: #f4a038
+$style4: #3464ac
+$style5: #3f4957
+$style6: #6b3aa7
+
 *
 	font-family: PT Serif
 
@@ -64,6 +71,7 @@ a
 		> a
 			padding: 15px 0
 			color: $brand-secondary
+			font-size: 30px
 			font-weight: 400
 			text-transform: initial
 
@@ -83,6 +91,49 @@ a
 
 		.pure-menu-item
 			> a
+
+	.project
+		.post-header
+			border-bottom: 1px dotted #eee
+
+			.post-title
+				margin: 0
+				font-size: 28px
+				font-weight: normal
+
+			.post-meta
+				color: $brand-text
+
+			.post-tags
+				display: inline-block
+				width: auto
+				padding: 0
+				margin: 0
+
+				.tag
+					padding: 5px 14px
+					border: 0
+					margin: 0 2px
+					font-size: 12px
+					text-transform: uppercase
+					border-radius: 25px
+					color: #fff
+
+					&:hover
+						color: #fff
+
+					&.tag-php
+						background-color: $style1
+					&.tag-wordpress
+						background-color: $style2
+					&.tag-angular
+						background-color: $style5
+					&.tag-cordova
+						background-color: $style4
+					&.tag-photoshop
+						background-color: $style3
+					&.tag-javascript
+						background-color: $style4
 
 
 +respond-to(both)
