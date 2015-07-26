@@ -3,7 +3,7 @@
 		<header class="post-header padding-lg padding-v">
 	        <h1 ng-bind-html="title(project.title)" class="post-title"></h1>
 	        <div class="post-meta">
-	            By <span class="post-author">{{project.author.name}}</span> on <span class="post-date">{{project.date | date:'d MMMM, yyyy'}}</span> <span ng-show="project.terms.post_tag">under</span> <ul list-tags class="pure-menu pure-menu-horizontal post-tags"></ul>
+	            <span class="hide-mobile">By <span class="post-author">{{project.author.name}}</span> on <span class="post-date">{{project.date | date:'d MMMM, yyyy'}}</span> <span ng-show="project.terms.post_tag">under</span></span> <ul list-tags class="pure-menu pure-menu-horizontal post-tags"></ul>
 	        </div>
 	    </header>
 		<div class="post-content" ng-bind-html="project.content" compile="project.content"></div>

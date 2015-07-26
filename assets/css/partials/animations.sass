@@ -1,0 +1,25 @@
+.app-photo
+	.loaded
+		animation-name: slideInDown
+		animation-duration: 250ms
+		animation-fill-mode: both
+
+.projects
+	.cover
+		animation-name: fadeIn
+		animation-duration: 250ms
+		animation-fill-mode: both
+		&.ng-hide
+			animation-name: fadeOut
+			animation-duration: 250ms
+			animation-fill-mode: both	
+
+.project .tag, .filter a
+	transition: all 150ms ease-in
+
+.loaded
+	> img
+		animation-name: fadeIn
+		animation-duration: 250ms
+		animation-fill-mode: both
+

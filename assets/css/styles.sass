@@ -1,9 +1,11 @@
 @import "pure.scss"
 @import "pure-grids.scss"
 @import "../bower_components/animate.css/animate.scss"
+@import "ng-modal.scss"
 
 @import "partials/mixins"
 @import "partials/helpers"
+@import "partials/animations"
 
 $brand-primary: #BA2A54
 $brand-primary-light: lighten($brand-primary,10%)
@@ -38,19 +40,8 @@ a
 	&:hover
 		color: $brand-primary-dark
 
-
-.animate-show.ng-hide-add, .animate-show.ng-hide-remove
-	transition: all linear 0.5s
-	display: block !important
-
-.animate-show.ng-hide-add.ng-hide-add-active, .animate-show.ng-hide-remove
-	opacity: 0
-
-.animate-show.ng-hide-add, .animate-show.ng-hide-remove.ng-hide-remove-active
-	opacity: 1
-
 .wrapper
-	max-width: 85%
+	max-width: 100%
 	margin: 0 auto
 
 	h4
@@ -101,18 +92,15 @@ a
 			text-transform: initial
 
 			.app-photo
-				display: block
-				+square($app-photo-size)
-				min-height: $app-photo-size
+				display: none
+				+square(85px)
+				min-height: 85px
 				margin: 0 auto 20px
 				
 				.loading
 					display: none !important
 
 				.loaded
-					animation-name: slideInDown
-					animation-duration: 250ms
-					animation-fill-mode: both
 					float: left
 				img
 					border-radius:  $app-photo-size
@@ -134,8 +122,6 @@ a
 
 				img
 					border-radius: $app-project-border-radius
-					transition: opacity 120ms ease-in
-					//opacity: 0
 
 				.cover
 					+stretch(0,0,0,0)
@@ -185,7 +171,6 @@ a
 					border-radius: 25px
 					color: #fff
 					background: $brand-primary
-					transition: all 150ms ease-in
 
 					&:hover
 						background: black
@@ -304,12 +289,6 @@ a
 	margin-left: -3%
 	margin-top: -30px
 
-.loaded
-	> img
-		animation-name: fadeIn
-		animation-duration: 450ms
-		animation-fill-mode: both
-
 .tinygif
 	width: 74.5%
 
@@ -322,6 +301,9 @@ a
 // 	align-items: center
 
 +respond-to(both)
+	.hide-mobile
+		display: none
+
 	.wrapper
 		.sidebar
 			width: 100%
@@ -332,3 +314,31 @@ a
 
 		.content
 			padding-left: 0
+
+		.projects
+			padding: 20px 0
+
+		.post-header
+			.post-title
+				font-size: 24px
+				text-align: center
+			.post-meta
+				padding-top: 5px
+				text-align: center
+
+
+	header.padding-xlg
+		padding: 20px 40px 0px
+
+	[ng-view]
+		padding: 0 20px
+
++respond-to(desktop)
+	.wrapper
+		max-width: 85%
+
+		.app-title > a
+			.app-photo
+				display: block
+				+square($app-photo-size)
+				min-height: $app-photo-size

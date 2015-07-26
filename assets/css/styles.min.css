@@ -3416,6 +3416,68 @@ Copyright (c) 2015 Daniel Eden
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp; }
 
+.ng-modal {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.ng-modal-overlay {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.8; }
+
+.ng-modal-dialog {
+  z-index: 10000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+  -webkit-box-shadow: 4px 4px 80px #000;
+  -moz-box-shadow: 4px 4px 80px #000;
+  -ms-box-shadow: 4px 4px 80px #000;
+  -o-box-shadow: 4px 4px 80px #000;
+  padding: 10px; }
+
+.ng-modal-dialog-content {
+  overflow: hidden;
+  height: 100%; }
+
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  padding: 5px;
+  display: inline-block; }
+
+.ng-modal-close-x {
+  font-weight: bold;
+  font-family: Arial, sans-serif; }
+
+.ng-modal-title {
+  font-weight: bold;
+  font-size: 200%;
+  display: block;
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: solid 1px #999; }
+
 /* Type */
 .text-center {
   text-align: center; }
@@ -3490,6 +3552,41 @@ Copyright (c) 2015 Daniel Eden
   .padding-xlg.padding-l-x {
     padding: 40px 20px 40px 0; }
 
+.app-photo .loaded {
+  -webkit-animation-name: slideInDown;
+          animation-name: slideInDown;
+  -webkit-animation-duration: 250ms;
+          animation-duration: 250ms;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+.projects .cover {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 250ms;
+          animation-duration: 250ms;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+  .projects .cover.ng-hide {
+    -webkit-animation-name: fadeOut;
+            animation-name: fadeOut;
+    -webkit-animation-duration: 250ms;
+            animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both; }
+
+.project .tag, .filter a {
+  -webkit-transition: all 150ms ease-in;
+          transition: all 150ms ease-in; }
+
+.loaded > img {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 250ms;
+          animation-duration: 250ms;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
 html, body {
   background: white; }
 
@@ -3503,19 +3600,8 @@ a {
   a:hover {
     color: #902141; }
 
-.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
-  -webkit-transition: all linear 0.5s;
-          transition: all linear 0.5s;
-  display: block !important; }
-
-.animate-show.ng-hide-add.ng-hide-add-active, .animate-show.ng-hide-remove {
-  opacity: 0; }
-
-.animate-show.ng-hide-add, .animate-show.ng-hide-remove.ng-hide-remove-active {
-  opacity: 1; }
-
 .wrapper {
-  max-width: 85%;
+  max-width: 100%;
   margin: 0 auto; }
   .wrapper h4 {
     padding: 0 0 15px;
@@ -3553,20 +3639,14 @@ a {
       font-weight: 400;
       text-transform: initial; }
       .wrapper .app-title > a .app-photo {
-        display: block;
-        width: 115px;
-        height: 115px;
-        min-height: 115px;
+        display: none;
+        width: 85px;
+        height: 85px;
+        min-height: 85px;
         margin: 0 auto 20px; }
         .wrapper .app-title > a .app-photo .loading {
           display: none !important; }
         .wrapper .app-title > a .app-photo .loaded {
-          -webkit-animation-name: slideInDown;
-                  animation-name: slideInDown;
-          -webkit-animation-duration: 250ms;
-                  animation-duration: 250ms;
-          -webkit-animation-fill-mode: both;
-                  animation-fill-mode: both;
           float: left; }
         .wrapper .app-title > a .app-photo img {
           border-radius: 115px; }
@@ -3580,9 +3660,7 @@ a {
       .wrapper .projects .pure-menu-item > a:hover {
         background: initial; }
       .wrapper .projects .pure-menu-item > a img {
-        border-radius: 2px;
-        -webkit-transition: opacity 120ms ease-in;
-                transition: opacity 120ms ease-in; }
+        border-radius: 2px; }
       .wrapper .projects .pure-menu-item > a .cover {
         position: absolute;
         top: 0;
@@ -3631,9 +3709,7 @@ a {
         text-transform: uppercase;
         border-radius: 25px;
         color: #fff;
-        background: #BA2A54;
-        -webkit-transition: all 150ms ease-in;
-                transition: all 150ms ease-in; }
+        background: #BA2A54; }
         .wrapper .project .post-header .post-tags .tag:hover {
           background: black;
           color: #fff; }
@@ -3751,24 +3827,41 @@ a {
   margin-left: -3%;
   margin-top: -30px; }
 
-.loaded > img {
-  -webkit-animation-name: fadeIn;
-          animation-name: fadeIn;
-  -webkit-animation-duration: 450ms;
-          animation-duration: 450ms;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both; }
-
 .tinygif {
   width: 74.5%; }
 
 @media only screen and (max-width: 979px) {
+  .hide-mobile {
+    display: none; }
+
   .wrapper .sidebar {
     width: 100%;
     position: relative; }
     .wrapper .sidebar .filter {
       display: none; }
   .wrapper .content {
-    padding-left: 0; } }
+    padding-left: 0; }
+  .wrapper .projects {
+    padding: 20px 0; }
+  .wrapper .post-header .post-title {
+    font-size: 24px;
+    text-align: center; }
+  .wrapper .post-header .post-meta {
+    padding-top: 5px;
+    text-align: center; }
+
+  header.padding-xlg {
+    padding: 20px 40px 0px; }
+
+  [ng-view] {
+    padding: 0 20px; } }
+@media only screen and (min-width: 980px) {
+  .wrapper {
+    max-width: 85%; }
+    .wrapper .app-title > a .app-photo {
+      display: block;
+      width: 115px;
+      height: 115px;
+      min-height: 115px; } }
 
 /*# sourceMappingURL=styles.min.css.map */
