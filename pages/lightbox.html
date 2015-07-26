@@ -1,0 +1,11 @@
+<div class="lightbox" ng-keydown="hideImg($event)" tabindex="0">
+
+    <span ng-click="loadImg()"><loader data-img-src="{{imgSrc}}" data-img-title="{{imgTitle}}"></loader></span>
+
+    <div class="container" ng-show="showImg">
+        <div ng-click="hideImg()" class="backdrop"></div>
+        <img alt="{{imgTitle}}" ng-src="{{imgSrc}}" />
+        <button ng-click="hideImg()" class="close">X</button>
+    </div>
+
+</div>

@@ -25,6 +25,9 @@ $style4: #3464ac
 $style5: #3f4957
 $style6: #6b3aa7
 
+html,body 
+	background: white
+
 *
 	font-family: PT Serif
 	-webkit-font-smoothing: antialiased
@@ -35,7 +38,20 @@ a
 	&:hover
 		color: $brand-primary-dark
 
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove
+	transition: all linear 0.5s
+	display: block !important
+
+.animate-show.ng-hide-add.ng-hide-add-active, .animate-show.ng-hide-remove
+	opacity: 0
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove.ng-hide-remove-active
+	opacity: 1
+
 .wrapper
+	max-width: 85%
+	margin: 0 auto
 
 	h4
 		padding: 0 0 15px
@@ -47,7 +63,6 @@ a
 		border-bottom: 1px dotted $app-dotted-border-color
 
 	.sidebar
-		background: darken(white,2%)
 		position: fixed
 		height: 100%
 		width: $sidebar-width
@@ -88,8 +103,19 @@ a
 			.app-photo
 				display: block
 				+square($app-photo-size)
+				min-height: $app-photo-size
 				margin: 0 auto 20px
-				border-radius: $app-photo-size
+				
+				.loading
+					display: none !important
+
+				.loaded
+					animation-name: slideInDown
+					animation-duration: 250ms
+					animation-fill-mode: both
+					float: left
+				img
+					border-radius:  $app-photo-size
 	
 	.app-description
 		color: $brand-text
@@ -108,9 +134,12 @@ a
 
 				img
 					border-radius: $app-project-border-radius
+					transition: opacity 120ms ease-in
+					//opacity: 0
 
 				.cover
 					+stretch(0,0,0,0)
+					z-index: 1
 					margin: 10px
 					display: flex
 					justify-content: center
@@ -120,11 +149,15 @@ a
 					font-size: 15px
 					border-radius: $app-project-border-radius
 
+				&.loaded
+					img
+						//opacity: 1
+
 
 
 	.project
 		.post-header
-			border-bottom: 1px dotted $app-dotted-border-color
+			margin-bottom: 3px
 
 			.post-title
 				margin: 0
@@ -132,7 +165,8 @@ a
 				font-weight: normal
 
 			.post-meta
-				color: $brand-text
+				color: rgba(black, .5)
+				padding-top: 10px
 
 			.post-tags
 				display: inline-block
@@ -141,30 +175,151 @@ a
 				margin: 0
 
 				.tag
-					padding: 5px 14px
+					padding: 3px 10px
 					border: 0
 					margin: 0 2px
-					font-size: 12px
+					font-family: PT Sans
+					font-size: 11px
+					font-weight: 600
 					text-transform: uppercase
 					border-radius: 25px
 					color: #fff
+					background: $brand-primary
+					transition: all 150ms ease-in
 
 					&:hover
+						background: black
 						color: #fff
 
-					&.tag-php
-						background-color: $style1
-					&.tag-wordpress
-						background-color: $style2
-					&.tag-angular
-						background-color: $style5
-					&.tag-cordova
-						background-color: $style4
-					&.tag-photoshop
-						background-color: $style3
-					&.tag-javascript
-						background-color: $style4
+		.post-description
+			font-size: 17px
+			font-weight: normal
+			line-height: 1.6
+			margin: 30px 0 0
+			> p 
+				padding: 0
 
+		.post-content
+			color: $brand-text
+			font-size: 16px
+			line-height: 1.6
+
+			h3
+				font-weight: normal
+				margin: 0
+				color: $brand-secondary
+
+			img
+				border-radius: 0
+
+			.section
+				margin: 0
+
+			.container
+				position: relative
+
+			.row
+				color: $brand-secondary
+				font-size: 16px
+				line-height: 1.6
+				margin: 10px 0 35px
+
+			.pt
+				padding-top: 4px
+			.pb
+				padding-bottom: 4px
+			.pr
+				padding-right: 2px
+			.pl
+				padding-left: 2px
+
+			.block
+				position: absolute
+				background: white
+				color: black
+				max-width: 50%
+				padding: 10px
+				font-size: 14px
+				line-height: 1.6
+				z-index: 1
+
+				&.block-tr
+					right: 10px
+					top: 10px
+				&.block-tl
+					left: 10px
+					top: 10px
+				&.block-bl
+					left: 10px
+					bottom: 10px
+				&.block-br
+					right: 10px
+					bottom: 10px
+
+
+.lightbox
+	cursor: pointer
+	.backdrop
+		background: rgba(black,.7)
+		position: fixed
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+	.container
+		img
+			z-index: 999
+			position: fixed
+			top: 3%
+			right: 0
+			bottom: 0
+			left: 0
+			margin: 0 auto
+			max-width: 90%
+			max-height: 95%
+			box-shadow: 0 4px 26px rgba(0, 0, 0, 0.29)
+		.close
+			+stretch(20px,20px,auto,auto)
+			position: fixed
+			+square(50px)
+			background: $brand-primary
+			color: white
+			border: 0
+			border-radius: 50px
+			font-family: arial
+			font-weight: bold
+			font-size: 16px
+			cursor: pointer
+			transition: 150ms
+			box-shadow: 0 4px 26px rgba(0, 0, 0, 0.29)
+			&:hover
+				background: $brand-secondary
+				color: white
+
+.loader
+	min-height: 9em
+.loading
+	+stretch(50%,auto,auto,50%)
+	+size(24px,30px)
+	margin-left: -3%
+	margin-top: -30px
+
+.loaded
+	> img
+		animation-name: fadeIn
+		animation-duration: 450ms
+		animation-fill-mode: both
+
+.tinygif
+	width: 74.5%
+
+// [lazy-img]:not(.img-ready)
+// 	margin: 0 auto
+// 	+stretch(0,0,0,0)
+// 	+size(24px,100%)
+// 	display: flex
+// 	justify-content: center
+// 	align-items: center
 
 +respond-to(both)
 	.wrapper

@@ -1,11 +1,11 @@
 <div class="project">
-	<div ng-repeat="project in portfolio | objByID: {ID:projectId}"> 
-		<header class="post-header padding-md">
-	        <h1 ng-bind-html="title(project.title)" class="post-title"></h2>
-	        <div class="post-meta padding-sm padding-v">
+	<div ng-repeat="project in portfolio | objByID: {slug:projectId}"> 
+		<header class="post-header padding-lg padding-v">
+	        <h1 ng-bind-html="title(project.title)" class="post-title"></h1>
+	        <div class="post-meta">
 	            By <span class="post-author">{{project.author.name}}</span> on <span class="post-date">{{project.date | date:'d MMMM, yyyy'}}</span> <span ng-show="project.terms.post_tag">under</span> <ul list-tags class="pure-menu pure-menu-horizontal post-tags"></ul>
 	        </div>
 	    </header>
-		<div class="post-content padding-md" ng-bind-html='project.content'></div>		
+		<div class="post-content" ng-bind-html="project.content" compile="project.content"></div>
 	</div>
 </div>
