@@ -17,7 +17,7 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize","angular-images-lo
 		templateUrl:'pages/project.html',
 		data : { pageTitle: 'Project | Tom Christian' }
 	})
-	.when('/tags/:tagId', {
+	.when('/tags/:slug', {
 		controller:'tagsController',
 		templateUrl:'pages/tags.html',
 		data : { pageTitle: 'Tags | Tom Christian' }
@@ -119,8 +119,7 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize","angular-images-lo
 })
 
 .controller('tagsController', function($scope, $rootScope, $routeParams, appTitle) {
-	$scope.tag = {};
-	$scope.tag.name = $routeParams.tagId;
+	$scope.tag = $routeParams.slug;
 })
 
 .directive('tinygif', function() {
@@ -268,10 +267,10 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize","angular-images-lo
 
 .filter('objByTag', function($filter) {
 	return function(input, search) {
-		var data = [];
+		var data = [], ID = Object.keys(search);
 		angular.forEach(input, function(item) {
 			angular.forEach(item.terms.post_tag, function(tag) {
-				if(tag.name == search.tag){
+				if(tag[ID] == search[ID]){
 					data.push(item);
 				}
 			});
@@ -283,9 +282,10 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize","angular-images-lo
 .filter('getAllTags', function() {
 	return function(input) {
 		var data = [];
+
 		angular.forEach(input, function(item) {
 			angular.forEach(item.terms.post_tag, function(tag) {
-				data.push(tag.name);
+				data.push(tag.slug);
 			});
 		});
 
@@ -296,11 +296,3 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize","angular-images-lo
 		return uniqueArray;
 	}
 })
-
-.filter('cleanUrl',function() {
-    return function(input) {
-        if (input) {
-            return input.replace(/\s+/g, '-').replace(/[^a-zA-Z-]/g, '').toLowerCase();    
-        }
-    }
-});
