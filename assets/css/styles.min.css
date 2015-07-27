@@ -3600,6 +3600,14 @@ a {
   a:hover {
     color: #902141; }
 
+.app-wip {
+  background: #F9EEF0;
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #865A62;
+  padding: 10px; }
+
 .wrapper {
   max-width: 100%;
   margin: 0 auto; }
@@ -3628,8 +3636,7 @@ a {
       .wrapper .sidebar .filter > ul li.active > a {
         color: #BA2A54; }
   .wrapper .content {
-    padding-left: 300px;
-    width: 100%; }
+    padding-left: 300px; }
   .wrapper .app-title {
     margin: 0; }
     .wrapper .app-title > a {
@@ -3647,7 +3654,7 @@ a {
         .wrapper .app-title > a .app-photo .loading {
           display: none !important; }
         .wrapper .app-title > a .app-photo .loaded {
-          float: left; }
+          display: block; }
         .wrapper .app-title > a .app-photo img {
           border-radius: 115px; }
   .wrapper .app-description {

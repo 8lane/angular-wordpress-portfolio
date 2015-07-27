@@ -1,7 +1,7 @@
 <div class="lightbox" ng-keydown="hideImg($event)" tabindex="0">
 
-    <span><loader data-img-src="{{imgSrc}}" data-img-title="{{imgTitle}}"></loader></span>
-<!-- 
+    <span ng-click="loadImg()"><loader data-img-src="{{imgSrc}}" data-img-title="{{imgTitle}}"></loader></span>
+
     <div class="ng-modal" ng-show="showImg">
         <div ng-click="hideImg()" class="ng-modal-overlay"></div>
         <div class="ng-modal-dialog">
@@ -9,6 +9,6 @@
 			<img alt="{{imgTitle}}" class="pure-img" ng-src="{{imgSrc}}" />
         </div>
         
-    </div> -->
+    </div>
 
 </div>

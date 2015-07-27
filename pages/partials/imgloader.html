@@ -1,4 +1,4 @@
 <div class="loader">
 	<tinygif></tinygif>
-	<a ng-href="{{imgSrc}}" target="_blank" ng-show="imgReady" images-loaded="imgLoadedEvents"><img alt="{{imgTitle}}" ng-src="{{imgSrc}}" class="pure-img" /></a>
+	<span ng-show="imgReady" ng-click="loadImg()" images-loaded="imgLoadedEvents"><img alt="{{imgTitle}}" ng-src="{{imgSrc}}" class="pure-img" /></span>
 </div>
