@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script type="text/javascript">
+        function DatesController($scope){
+
+			var getDay = function(input) {
+				var totals = [], total = 0;
+
+				for (item in input) {
+					var now = new Date(input[item]), 
+						start = new Date(now.getFullYear(),0,0),
+						diff = now - start, 
+						oneDay = 1000 * 60 * 60 * 24;
+						totals.push(Math.floor(diff/oneDay))
+				}
+
+				totals.map(function(item){
+				    total += item;
+				});
+
+				return total;
+			}
+
+			$scope.dates = [1,2];
+			$scope.data = {};
+
+			$scope.update = function(dates) {
+				$scope.total = getDay(dates);
+			}
+
+			$scope.add = function(data) {
+				var item = $scope.dates.length + 1;
+				$scope.dates.push(item);
+			}
+        }  
+    </script>
+</head>
+<body>
+    <div ng-controller="DatesController">
+
+		<form novalidate class="simple-form">
+			<fieldset ng-repeat="date in dates">
+				<input ng-model="data[date]" type="date" />
+			</fieldset>
+			<button ng-click="add()">Add Date</button>
+			<input type="submit" ng-click="update(data)" value="Save" />
+		</form>
+
+		<div ng-show="total">Total: {{total}}</div>
+
+    </div>
+</body>
+</html>

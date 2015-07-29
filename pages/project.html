@@ -1,6 +1,10 @@
 <div class="project">
-	<div ng-repeat="project in portfolio | objByID: {slug:projectId}"> 
+	<div ng-repeat="project in portfolio | objByID: {slug:projectId}">
 		<header class="post-header padding-lg padding-v">
+	        <nav class="post-nav" ng-init="pagination.getLinks(project.ID)">
+	        	<a class="direction" ng-href="#/portfolio/{{pagination.goPrev.slug}}" title="{{pagination.goPrev.title}}"><i class="icon-chevron-with-circle-left"></i> <span class="text">Prev</span></a>
+	        	<a class="direction" ng-href="#/portfolio/{{pagination.goNext.slug}}" title="{{pagination.goNext.title}}"><span class="text">Next</span> <i class="icon-chevron-with-circle-right"></i></a>
+	        </nav>
 	        <h1 ng-bind-html="title(project.title)" class="post-title"></h1>
 	        <div class="post-meta">
 	            <span class="hide-mobile">By <span class="post-author">{{project.author.name}}</span> on <span class="post-date">{{project.date | date:'d MMMM, yyyy'}}</span> <span ng-show="project.terms.post_tag">under</span></span> <ul list-tags class="pure-menu pure-menu-horizontal post-tags"></ul>

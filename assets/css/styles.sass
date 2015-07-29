@@ -6,6 +6,7 @@
 @import "partials/mixins"
 @import "partials/helpers"
 @import "partials/animations"
+@import "../fonts/icomoon/style.scss"
 
 $brand-primary: #BA2A54
 $brand-primary-light: lighten($brand-primary,10%)
@@ -154,6 +155,7 @@ a
 			margin-bottom: 3px
 
 			.post-title
+				display: inline-block
 				margin: 0
 				font-size: 28px
 				font-weight: normal
@@ -161,6 +163,14 @@ a
 			.post-meta
 				color: rgba(black, .5)
 				padding-top: 10px
+
+			.post-nav
+				.direction
+					color: $brand-secondary
+					padding-left: 5px
+					transition: 120ms
+					&:hover
+						color: $brand-primary
 
 			.post-tags
 				display: inline-block
@@ -322,17 +332,28 @@ a
 
 		.content
 			padding-left: 0
+			width: 100%
 
 		.projects
 			padding: 20px 0
 
-		.post-header
-			.post-title
-				font-size: 24px
-				text-align: center
-			.post-meta
-				padding-top: 5px
-				text-align: center
+		.project
+			.post-header
+				.post-title
+					display: block
+					font-size: 24px
+					text-align: center
+				.post-meta
+					padding-top: 5px
+					text-align: center
+				.post-nav
+					text-align: center
+					margin: 8px 0px
+					font-size: 16px
+					.direction > i
+						vertical-align: middle
+						margin-top: -2px
+						display: inline-block
 
 
 	header.padding-xlg
@@ -350,3 +371,17 @@ a
 				display: block
 				+square($app-photo-size)
 				min-height: $app-photo-size
+
+			.home-icon
+				+stretch(98px,auto,auto,50%)
+				margin-left: -15px
+				color: white
+				
+		.post-header
+			.post-nav
+				float: right
+				font-size: 28px
+				margin-top: 2px
+
+				.text
+					display: none

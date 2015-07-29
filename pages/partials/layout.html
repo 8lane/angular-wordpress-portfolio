@@ -2,13 +2,14 @@
     <aside ng-if="portfolio" class="sidebar pure-u-1 pure-u-md-1-4 animated animated-medium fadeIn">
 		<header class="padding-xlg text-center">
 			<h1 class="app-title">
-				<a ng-href="#/" class="pure-menu-heading">
+				<a ng-href="#/" class="pure-menu-heading" ng-mouseover="showHome()" ng-mouseleave="hideHome()">
 					<loader data-img-src="assets/img/avatar.jpg" data-img-title="{{siteInfo.name}}" class="app-photo"></loader>
 					{{siteInfo.name}}
+					<span ng-show="homeActive" class="home-icon ng-hide ng-hide-animate"><i class="icon-home"></i></span>
 				</a>
 			</h1>
 			<span class="app-description" ng-bind-html="siteInfo.description"></span>
-			<span class="app-wip">This portfolio is currently in development. Powered by AngularJS.</span>
+			<span class="app-wip">This portfolio is currently in live development. Powered by AngularJS.</span>
 		</header>
 		<nav ng-if="portfolio" class="filter pure-menu padding-xlg padding-half-v animated animated-fast slideInLeft">
 			<h4 class="pure-menu-heading">Filter</h4>
