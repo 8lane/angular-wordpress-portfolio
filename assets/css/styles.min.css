@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
 Pure v0.6.0
 Copyright 2014 Yahoo! Inc. All rights reserved.
@@ -3592,7 +3593,7 @@ Copyright (c) 2015 Daniel Eden
 
 .project .tag, .filter a {
   -webkit-transition: all 150ms ease-in;
-          transition: all 150ms ease-in; }
+  transition: all 150ms ease-in; }
 
 .loaded > img {
   -webkit-animation-name: fadeIn;
@@ -3604,12 +3605,13 @@ Copyright (c) 2015 Daniel Eden
 
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon/icomoon.eot?j2702l");
-  src: url("../fonts/icomoon/icomoon.eot?#iefixj2702l") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?j2702l") format("truetype"), url("../fonts/icomoon/icomoon.woff?j2702l") format("woff"), url("../fonts/icomoon/icomoon.svg?j2702l#icomoon") format("svg");
+  src: url("../fonts/icomoon/fonts//icomoon.eot?hbkqjf");
+  src: url("../fonts/icomoon/fonts//icomoon.eot?hbkqjf#iefix") format("embedded-opentype"), url("../fonts/icomoon/fonts//icomoon.ttf?hbkqjf") format("truetype"), url("../fonts/icomoon/fonts//icomoon.woff?hbkqjf") format("woff"), url("../fonts/icomoon/fonts//icomoon.svg?hbkqjf#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 i {
-  font-family: 'icomoon';
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -3620,80 +3622,74 @@ i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-chevron-down:before {
-  content: "\e600"; }
-
-.icon-chevron-left:before {
-  content: "\e601"; }
-
-.icon-chevron-right:before {
-  content: "\e602"; }
-
-.icon-chevron-small-down:before {
-  content: "\e603"; }
-
-.icon-chevron-small-left:before {
-  content: "\e604"; }
-
-.icon-chevron-small-right:before {
-  content: "\e605"; }
-
-.icon-chevron-small-up:before {
-  content: "\e606"; }
-
-.icon-chevron-thin-down:before {
-  content: "\e607"; }
-
-.icon-chevron-thin-left:before {
-  content: "\e608"; }
-
-.icon-chevron-thin-right:before {
-  content: "\e609"; }
-
-.icon-chevron-thin-up:before {
-  content: "\e60a"; }
-
-.icon-chevron-up:before {
-  content: "\e60b"; }
-
-.icon-chevron-with-circle-down:before {
-  content: "\e60c"; }
-
-.icon-chevron-with-circle-left:before {
-  content: "\e60d"; }
-
-.icon-chevron-with-circle-right:before {
-  content: "\e60e"; }
-
-.icon-chevron-with-circle-up:before {
-  content: "\e60f"; }
-
-.icon-circle-with-cross:before {
-  content: "\e613"; }
-
-.icon-code:before {
-  content: "\e614"; }
-
-.icon-cog:before {
-  content: "\e615"; }
-
-.icon-cross:before {
-  content: "\e616"; }
-
-.icon-home:before {
-  content: "\e618"; }
-
-.icon-menu:before {
-  content: "\e617"; }
-
-.icon-github:before {
-  content: "\e610"; }
+.icon-facebook:before {
+  content: ""; }
 
 .icon-instagram:before {
-  content: "\e611"; }
+  content: ""; }
+
+.icon-spotify:before {
+  content: ""; }
 
 .icon-twitter:before {
-  content: "\e612"; }
+  content: ""; }
+
+.icon-dribbble:before {
+  content: ""; }
+
+.icon-github:before {
+  content: ""; }
+
+.icon-linkedin:before {
+  content: ""; }
+
+.icon-chevron-down:before {
+  content: ""; }
+
+.icon-chevron-left:before {
+  content: ""; }
+
+.icon-chevron-right:before {
+  content: ""; }
+
+.icon-chevron-small-down:before {
+  content: ""; }
+
+.icon-chevron-small-left:before {
+  content: ""; }
+
+.icon-chevron-small-right:before {
+  content: ""; }
+
+.icon-chevron-small-up:before {
+  content: ""; }
+
+.icon-chevron-thin-down:before {
+  content: ""; }
+
+.icon-chevron-thin-left:before {
+  content: ""; }
+
+.icon-chevron-thin-right:before {
+  content: ""; }
+
+.icon-chevron-thin-up:before {
+  content: ""; }
+
+.icon-chevron-up:before {
+  content: ""; }
+
+.icon-chevron-with-circle-down:before {
+  content: ""; }
+
+.icon-chevron-with-circle-left:before {
+  content: ""; }
+
+.icon-chevron-with-circle-right:before {
+  content: ""; }
+
+.icon-chevron-with-circle-up:before {
+  content: ""; }
 
 html, body {
   background: white; }
@@ -3708,13 +3704,18 @@ a {
   a:hover {
     color: #902141; }
 
+.text-center {
+  text-align: center; }
+
 .app-wip {
-  background: #F9EEF0;
+  background: #de4d6c;
   display: block;
   margin-top: 15px;
   font-size: 14px;
-  color: #865A62;
-  padding: 10px; }
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 2px; }
 
 .wrapper {
   max-width: 100%;
@@ -3731,18 +3732,38 @@ a {
     position: fixed;
     height: 100%;
     width: 300px; }
+    .wrapper .sidebar .social-icons li a {
+      color: #3f4957; }
+      .wrapper .sidebar .social-icons li a:hover, .wrapper .sidebar .social-icons li a:focus, .wrapper .sidebar .social-icons li a:active {
+        color: #2a3039;
+        background: transparent; }
     .wrapper .sidebar .filter > ul {
       padding: 0;
       margin: 0;
       list-style-type: none; }
-      .wrapper .sidebar .filter > ul li > a {
-        padding: 4px 0;
-        color: #787C7E; }
-        .wrapper .sidebar .filter > ul li > a:hover, .wrapper .sidebar .filter > ul li > a:active, .wrapper .sidebar .filter > ul li > a:focus {
-          color: #1F1F1F;
-          background: initial; }
-      .wrapper .sidebar .filter > ul li.active > a {
-        color: #BA2A54; }
+      .wrapper .sidebar .filter > ul li {
+        float: left;
+        margin-right: 5px;
+        margin-bottom: 10px; }
+        .wrapper .sidebar .filter > ul li > a {
+          display: inline-block;
+          padding: 4px 0;
+          color: #787C7E;
+          background: #f9f9f9;
+          border-radius: 20px;
+          padding: 2px 10px;
+          font-family: PT Sans;
+          font-size: 11px;
+          font-weight: 500;
+          text-transform: uppercase; }
+          .wrapper .sidebar .filter > ul li > a:hover, .wrapper .sidebar .filter > ul li > a:active, .wrapper .sidebar .filter > ul li > a:focus {
+            color: #1F1F1F;
+            background: initial; }
+          .wrapper .sidebar .filter > ul li > a:hover {
+            background: #eee; }
+        .wrapper .sidebar .filter > ul li.active > a {
+          color: white;
+          background-color: #BA2A54; }
   .wrapper .content {
     padding-left: 300px; }
   .wrapper .app-title {
@@ -3814,14 +3835,15 @@ a {
       color: #1F1F1F;
       padding-left: 5px;
       -webkit-transition: 120ms;
-              transition: 120ms; }
+      transition: 120ms; }
       .wrapper .project .post-header .post-nav .direction:hover {
         color: #BA2A54; }
     .wrapper .project .post-header .post-tags {
       display: inline-block;
       width: auto;
       padding: 0;
-      margin: 0; }
+      margin: 0;
+      white-space: normal; }
       .wrapper .project .post-header .post-tags .tag {
         padding: 3px 10px;
         border: 0;
@@ -3930,7 +3952,7 @@ a {
     font-size: 16px;
     cursor: pointer;
     -webkit-transition: 150ms;
-            transition: 150ms;
+    transition: 150ms;
     box-shadow: 0 4px 26px rgba(0, 0, 0, 0.29); }
     .lightbox .container .close:hover {
       background: #1F1F1F;

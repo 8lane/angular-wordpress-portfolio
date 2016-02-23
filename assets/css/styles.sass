@@ -6,6 +6,8 @@
 @import "partials/mixins"
 @import "partials/helpers"
 @import "partials/animations"
+
+$icomoon-font-path: "../fonts/icomoon/fonts/" !default
 @import "../fonts/icomoon/style.scss"
 
 $brand-primary: #BA2A54
@@ -41,13 +43,18 @@ a
 	&:hover
 		color: $brand-primary-dark
 
+.text-center
+	text-align: center
+
 .app-wip
-	background: #F9EEF0
+	background: $style1
 	display: block
 	margin-top: 15px
 	font-size: 14px
-	color: #865A62
+	color: white
 	padding: 10px
+	margin-bottom: 10px
+	border-radius: 2px
 
 .wrapper
 	max-width: 100%
@@ -67,6 +74,14 @@ a
 		height: 100%
 		width: $sidebar-width
 
+		.social-icons
+			li a
+				color: $style5
+
+				&:hover, &:focus, &:active
+					color: darken($style5, 10%)
+					background: transparent
+
 		.filter
 			> ul
 				padding: 0
@@ -74,17 +89,33 @@ a
 				list-style-type: none
 
 				li
+					float: left
+					margin-right: 5px
+					margin-bottom: 10px
+
 					> a
+						display: inline-block
 						padding: 4px 0
 						color: $brand-text
+						background: #f9f9f9
+						border-radius: 20px
+						padding: 2px 10px
+						font-family: PT Sans
+						font-size: 11px
+						font-weight: 500
+						text-transform: uppercase
 
 						&:hover, &:active, &:focus
 							color: $brand-secondary
 							background: initial
 
+						&:hover
+							background: #eee
+							
 					&.active
 						> a
-							color: $brand-primary
+							color: white
+							background-color: $brand-primary
 
 	.content
 		padding-left: $sidebar-width
@@ -177,6 +208,7 @@ a
 				width: auto
 				padding: 0
 				margin: 0
+				white-space: normal
 
 				.tag
 					padding: 3px 10px

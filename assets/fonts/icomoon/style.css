@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?hbkqjf');
+    src:    url('fonts/icomoon.eot?hbkqjf#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?hbkqjf') format('truetype'),
+        url('fonts/icomoon.woff?hbkqjf') format('woff'),
+        url('fonts/icomoon.svg?hbkqjf#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+i {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+    content: "\e900";
+}
+.icon-instagram:before {
+    content: "\e901";
+}
+.icon-spotify:before {
+    content: "\e902";
+}
+.icon-twitter:before {
+    content: "\e903";
+}
+.icon-dribbble:before {
+    content: "\e904";
+}
+.icon-github:before {
+    content: "\e905";
+}
+.icon-linkedin:before {
+    content: "\e906";
+}
+.icon-chevron-down:before {
+    content: "\e600";
+}
+.icon-chevron-left:before {
+    content: "\e601";
+}
+.icon-chevron-right:before {
+    content: "\e602";
+}
+.icon-chevron-small-down:before {
+    content: "\e603";
+}
+.icon-chevron-small-left:before {
+    content: "\e604";
+}
+.icon-chevron-small-right:before {
+    content: "\e605";
+}
+.icon-chevron-small-up:before {
+    content: "\e606";
+}
+.icon-chevron-thin-down:before {
+    content: "\e607";
+}
+.icon-chevron-thin-left:before {
+    content: "\e608";
+}
+.icon-chevron-thin-right:before {
+    content: "\e609";
+}
+.icon-chevron-thin-up:before {
+    content: "\e60a";
+}
+.icon-chevron-up:before {
+    content: "\e60b";
+}
+.icon-chevron-with-circle-down:before {
+    content: "\e60c";
+}
+.icon-chevron-with-circle-left:before {
+    content: "\e60d";
+}
+.icon-chevron-with-circle-right:before {
+    content: "\e60e";
+}
+.icon-chevron-with-circle-up:before {
+    content: "\e60f";
+}
+

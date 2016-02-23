@@ -1,100 +1,144 @@
+@import "variables";
+
 @font-face {
-	font-family: 'icomoon';
-	src:url('../fonts/icomoon/icomoon.eot?j2702l');
-	src:url('../fonts/icomoon/icomoon.eot?#iefixj2702l') format('embedded-opentype'),
-		url('../fonts/icomoon/icomoon.ttf?j2702l') format('truetype'),
-		url('../fonts/icomoon/icomoon.woff?j2702l') format('woff'),
-		url('../fonts/icomoon/icomoon.svg?j2702l#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'icomoon';
+    src:    url('#{$icomoon-font-path}/icomoon.eot?hbkqjf');
+    src:    url('#{$icomoon-font-path}/icomoon.eot?hbkqjf#iefix') format('embedded-opentype'),
+        url('#{$icomoon-font-path}/icomoon.ttf?hbkqjf') format('truetype'),
+        url('#{$icomoon-font-path}/icomoon.woff?hbkqjf') format('woff'),
+        url('#{$icomoon-font-path}/icomoon.svg?hbkqjf#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 i {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-chevron-down:before {
-	content: "\e600";
+.icon-facebook {
+    &:before {
+        content: $icon-facebook;
+    }
 }
-.icon-chevron-left:before {
-	content: "\e601";
+.icon-instagram {
+    &:before {
+        content: $icon-instagram;
+    }
 }
-.icon-chevron-right:before {
-	content: "\e602";
+.icon-spotify {
+    &:before {
+        content: $icon-spotify;
+    }
 }
-.icon-chevron-small-down:before {
-	content: "\e603";
+.icon-twitter {
+    &:before {
+        content: $icon-twitter;
+    }
 }
-.icon-chevron-small-left:before {
-	content: "\e604";
+.icon-dribbble {
+    &:before {
+        content: $icon-dribbble;
+    }
 }
-.icon-chevron-small-right:before {
-	content: "\e605";
+.icon-github {
+    &:before {
+        content: $icon-github;
+    }
 }
-.icon-chevron-small-up:before {
-	content: "\e606";
+.icon-linkedin {
+    &:before {
+        content: $icon-linkedin;
+    }
 }
-.icon-chevron-thin-down:before {
-	content: "\e607";
+.icon-chevron-down {
+    &:before {
+        content: $icon-chevron-down;
+    }
 }
-.icon-chevron-thin-left:before {
-	content: "\e608";
+.icon-chevron-left {
+    &:before {
+        content: $icon-chevron-left;
+    }
 }
-.icon-chevron-thin-right:before {
-	content: "\e609";
+.icon-chevron-right {
+    &:before {
+        content: $icon-chevron-right;
+    }
 }
-.icon-chevron-thin-up:before {
-	content: "\e60a";
+.icon-chevron-small-down {
+    &:before {
+        content: $icon-chevron-small-down;
+    }
 }
-.icon-chevron-up:before {
-	content: "\e60b";
+.icon-chevron-small-left {
+    &:before {
+        content: $icon-chevron-small-left;
+    }
 }
-.icon-chevron-with-circle-down:before {
-	content: "\e60c";
+.icon-chevron-small-right {
+    &:before {
+        content: $icon-chevron-small-right;
+    }
 }
-.icon-chevron-with-circle-left:before {
-	content: "\e60d";
+.icon-chevron-small-up {
+    &:before {
+        content: $icon-chevron-small-up;
+    }
 }
-.icon-chevron-with-circle-right:before {
-	content: "\e60e";
+.icon-chevron-thin-down {
+    &:before {
+        content: $icon-chevron-thin-down;
+    }
 }
-.icon-chevron-with-circle-up:before {
-	content: "\e60f";
+.icon-chevron-thin-left {
+    &:before {
+        content: $icon-chevron-thin-left;
+    }
 }
-.icon-circle-with-cross:before {
-	content: "\e613";
+.icon-chevron-thin-right {
+    &:before {
+        content: $icon-chevron-thin-right;
+    }
 }
-.icon-code:before {
-	content: "\e614";
+.icon-chevron-thin-up {
+    &:before {
+        content: $icon-chevron-thin-up;
+    }
 }
-.icon-cog:before {
-	content: "\e615";
+.icon-chevron-up {
+    &:before {
+        content: $icon-chevron-up;
+    }
 }
-.icon-cross:before {
-	content: "\e616";
+.icon-chevron-with-circle-down {
+    &:before {
+        content: $icon-chevron-with-circle-down;
+    }
 }
-.icon-home:before {
-	content: "\e618";
+.icon-chevron-with-circle-left {
+    &:before {
+        content: $icon-chevron-with-circle-left;
+    }
 }
-.icon-menu:before {
-	content: "\e617";
+.icon-chevron-with-circle-right {
+    &:before {
+        content: $icon-chevron-with-circle-right;
+    }
 }
-.icon-github:before {
-	content: "\e610";
+.icon-chevron-with-circle-up {
+    &:before {
+        content: $icon-chevron-with-circle-up;
+    }
 }
-.icon-instagram:before {
-	content: "\e611";
-}
-.icon-twitter:before {
-	content: "\e612";
-}
+
