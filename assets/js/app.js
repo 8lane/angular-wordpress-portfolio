@@ -73,7 +73,7 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize","angular-images-lo
 
 	$scope.options = {
 		query: { site: "", posts: "posts?filter[posts_per_page]=20&filter[order]=DATE" },
-		authorInfo: "Creator of <a target='_blank' href='http://ipsthemes.com'>IPS Themes</a> & <a target='_blank' href='http://xenthemes.com'>Xenthemes</a>.",
+		authorInfo: "Creator of <a target='_blank' href='http://ipsthemes.com'>IPS Themes</a>",
 	};
 
 	WPAPI.fetch($scope.options.query.site).then(function(data){
