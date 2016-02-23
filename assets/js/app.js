@@ -41,8 +41,8 @@ var myApp = angular.module('tomsApp', ["ngRoute","ngSanitize","angular-images-lo
 
 .factory("WPAPI",function($http, $q){
 	var data = {},
-		baseURL = 'http://dev/portfoliov4/wp-json/';
-
+		baseURL = 'http://tomchristian.co.uk/wp-json/';
+		//baseURL = 'http://dev/portfoliov4/wp-json/';
 	return {
 		fetch: function(query) {
            return $http.get(baseURL+query).then(function(results){
